@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.34902.97
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HummerShock_Calibration", "HammerShock_Calibration\HummerShock_Calibration.csproj", "{D5261DD1-054E-4BAE-8373-CF188070C01E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL_DbHummer", "DAL_DbHammer\DAL_DbHummer.csproj", "{3184F319-D6A6-40C2-A097-E26CCF1830C1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D5261DD1-054E-4BAE-8373-CF188070C01E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5261DD1-054E-4BAE-8373-CF188070C01E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5261DD1-054E-4BAE-8373-CF188070C01E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5261DD1-054E-4BAE-8373-CF188070C01E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3184F319-D6A6-40C2-A097-E26CCF1830C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3184F319-D6A6-40C2-A097-E26CCF1830C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3184F319-D6A6-40C2-A097-E26CCF1830C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3184F319-D6A6-40C2-A097-E26CCF1830C1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DA3B76E7-6ABA-4DD7-9B5F-1484F3E04DB3}
+	EndGlobalSection
+EndGlobal
