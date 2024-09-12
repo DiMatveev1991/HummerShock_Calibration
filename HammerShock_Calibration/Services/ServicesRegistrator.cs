@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using HammerShock_Calibration.ViewModels;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,7 @@ namespace HammerShock_Calibration.Services
 	static class ServicesRegistrator
 	{
 		public static IServiceCollection AddServices(this IServiceCollection services) => services
-		;
+		.AddSingleton<MainWindowViewModel>()
+			;
 	}
 }

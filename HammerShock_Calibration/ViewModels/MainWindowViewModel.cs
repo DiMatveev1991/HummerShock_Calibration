@@ -1,4 +1,5 @@
 ﻿
+using MathCore.WPF.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace HammerShock_Calibration.ViewModels
 {
-		public class MainWindowViewModel: MathCore.WPF.ViewModels.ViewModel
+		public class MainWindowViewModel: ViewModel
 	{
 		#region Title
 		    private string _Title = "lable";

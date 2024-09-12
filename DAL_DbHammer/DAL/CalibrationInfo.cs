@@ -1,14 +1,14 @@
-﻿using System;
+﻿using DAL_DbHammer.DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAL_DbHummer.DAL
+namespace DAL_DbHammer.DAL
 {
-	public class CalibrationInfo
+	public class CalibrationInfo: Entity
 	{
-		public Guid Id { get; set; }
 
 		public virtual CalibHummer CalibHummer { get; set; }
 

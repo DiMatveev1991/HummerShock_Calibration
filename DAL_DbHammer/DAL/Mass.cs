@@ -1,15 +1,15 @@
-﻿using System;
+﻿using DAL_DbHammer.DAL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAL_DbHummer.DAL
+namespace DAL_DbHammer.DAL
 {
-	public class Mass
+	public class Mass: Entity
 	{
-		public Guid Id { get; set; }
 		[Required]
 		public string Name { get; set; }
 		public double mass { get; set; }
