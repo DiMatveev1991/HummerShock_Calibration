@@ -84,8 +84,6 @@ namespace DAL_DbHammer
 	}
 	class SampleRepository: DbRepository<Sample>
 	{
-		public SampleRepository(HummerShockDb db): base(db){ }
-
-		
+		public SampleRepository (HummerShockDb db): base(db){ }
 	}
 }
