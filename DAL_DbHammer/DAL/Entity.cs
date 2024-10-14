@@ -8,6 +8,6 @@ namespace DAL_DbHammer.DAL
 {
 	public abstract class Entity:IEntity
 	{
-		public Guid Id { get; set; }
+		public Guid Id { get; set;}
 	}
 }

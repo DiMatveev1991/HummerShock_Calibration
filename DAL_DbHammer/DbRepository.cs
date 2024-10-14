@@ -12,18 +12,18 @@ using System.Threading.Tasks;
 
 namespace DAL_DbHammer
 {
-	internal class DbRepository<T> : IRepository<T> where T : Entity, new()
+	class DbRepository<T> : IRepository<T> where T : Entity, new()
 	{
 		private readonly HummerShockDb _db;
 		private readonly DbSet<T> _dbSet;
-		public bool AutoSaveChanges { get; set; } = true;
+		public bool AutoSaveChanges {get; set;} = true;
 		public DbRepository(HummerShockDb db) 
 		{
 		_db= db;
 		_dbSet= db.Set<T>();
 		}
 		
-		public virtual IQueryable<T> items => _dbSet;
+		public virtual IQueryable <T> items  => _dbSet;
 
 		public T Add(T item)
 		{
@@ -82,10 +82,28 @@ namespace DAL_DbHammer
 			await _db.SaveChangesAsync(Cancel).ConfigureAwait(false);
 		}
 	}
-	class SampleRepository: DbRepository<Sample>
+	class ManufactureNameRepository : DbRepository<ManufactureName>
 	{
-		public SampleRepository(HummerShockDb db): base(db){ }
-
-		
+		public override IQueryable<ManufactureName> items => base.items.Include(item => item.Samples);
+		public ManufactureNameRepository(HummerShockDb db) : base(db) { }
+	}
+	class CalibHummerRepository : DbRepository<CalibHummer>
+	{
+		public override IQueryable<CalibHummer> items => base.items
+			.Include(item => item.calibrationInfos)
+			.Include(item => item.Sample);
+		public CalibHummerRepository(HummerShockDb db) : base(db) { }
+	}
+	class CalibrationInfoRepository : DbRepository<CalibrationInfo>
+	{
+		public override IQueryable<CalibrationInfo> items => base.items
+			.Include(item => item.CalibHummer);
+		public CalibrationInfoRepository(HummerShockDb db) : base(db) { }
+	}
+	class SampleRepository : DbRepository<Sample>
+	{
+		public override IQueryable<Sample> items => base.items
+			.Include(item => item.Manufacture);
+		public SampleRepository(HummerShockDb db) : base(db) { }
 	}
 }

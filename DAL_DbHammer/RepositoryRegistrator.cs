@@ -14,10 +14,10 @@ namespace DAL_DbHammer
 		public static IServiceCollection AddRepositoriesInDb(this IServiceCollection services) => services
 		.AddTransient<IRepository<Mass>, DbRepository<Mass>>()
         .AddTransient<IRepository<RefAccelerometer>, DbRepository<RefAccelerometer>>()
-        .AddTransient<IRepository<ManufactureName>, DbRepository<ManufactureName>>()
-		.AddTransient<IRepository<Sample>, DbRepository<Sample>>()
-		.AddTransient<IRepository<CalibHummer>, DbRepository<CalibHummer>>()
-		.AddTransient<IRepository<CalibrationInfo>, DbRepository<CalibrationInfo>>()
+        .AddTransient<IRepository<ManufactureName>, ManufactureNameRepository>()
+		.AddTransient<IRepository<Sample>, SampleRepository>()
+		.AddTransient<IRepository<CalibHummer>, CalibHummerRepository>()
+		.AddTransient<IRepository<CalibrationInfo>, CalibrationInfoRepository>()
 		;
 	}
 }

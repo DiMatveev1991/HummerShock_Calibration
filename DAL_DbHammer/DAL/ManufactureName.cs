@@ -12,7 +12,7 @@ namespace DAL_DbHammer.DAL
 	{
 		[Required]
 		public string Manufacture { get; set; }
-		public virtual ICollection <Sample> Samples { get; set; }
+		public virtual ICollection<Sample> Samples { get; set; }
 
 	}
 }
