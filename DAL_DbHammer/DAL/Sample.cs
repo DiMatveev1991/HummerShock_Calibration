@@ -1,14 +1,8 @@
-﻿using DAL_DbHammer.DAL;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace DAL_DbHammer.DAL
 {
-	public class Sample: Entity
+	public class Sample : Entity
 	{
 
 		public virtual ManufactureName Manufacture { get; set; }

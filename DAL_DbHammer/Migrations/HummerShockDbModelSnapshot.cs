@@ -19,7 +19,7 @@ namespace DAL_DbHammer.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("DAL_DbHummer.DAL.CalibHummer", b =>
+            modelBuilder.Entity("DAL_DbHammer.DAL.CalibHummer", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -38,7 +38,7 @@ namespace DAL_DbHammer.Migrations
                     b.ToTable("CalibHummers");
                 });
 
-            modelBuilder.Entity("DAL_DbHummer.DAL.CalibrationInfo", b =>
+            modelBuilder.Entity("DAL_DbHammer.DAL.CalibrationInfo", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -54,7 +54,7 @@ namespace DAL_DbHammer.Migrations
                     b.ToTable("CalibInfo");
                 });
 
-            modelBuilder.Entity("DAL_DbHummer.DAL.ManufactureName", b =>
+            modelBuilder.Entity("DAL_DbHammer.DAL.ManufactureName", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -69,7 +69,7 @@ namespace DAL_DbHammer.Migrations
                     b.ToTable("ManufactureNames");
                 });
 
-            modelBuilder.Entity("DAL_DbHummer.DAL.Mass", b =>
+            modelBuilder.Entity("DAL_DbHammer.DAL.Mass", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -90,14 +90,11 @@ namespace DAL_DbHammer.Migrations
                     b.ToTable("masses");
                 });
 
-            modelBuilder.Entity("DAL_DbHummer.DAL.RefAccelerometer", b =>
+            modelBuilder.Entity("DAL_DbHammer.DAL.RefAccelerometer", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<double>("AmplitudeImpuls")
-                        .HasColumnType("float");
 
                     b.Property<string>("Manufacture")
                         .IsRequired()
@@ -107,14 +104,31 @@ namespace DAL_DbHammer.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("PulseTimeMs")
-                        .HasColumnType("float");
-
                     b.Property<string>("SerialNumber")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TypeAcs")
                         .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("refAccelerometers");
+                });
+
+            modelBuilder.Entity("DAL_DbHammer.DAL.SamplRefAcc", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("AccelerometerId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<double>("AmplitudeImpuls")
+                        .HasColumnType("float");
+
+                    b.Property<double>("PulseTimeMs")
+                        .HasColumnType("float");
 
                     b.Property<string>("dimension")
                         .HasColumnType("nvarchar(max)");
@@ -124,10 +138,12 @@ namespace DAL_DbHammer.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("refAccelerometers");
+                    b.HasIndex("AccelerometerId");
+
+                    b.ToTable("SamplRefAcc");
                 });
 
-            modelBuilder.Entity("DAL_DbHummer.DAL.Sample", b =>
+            modelBuilder.Entity("DAL_DbHammer.DAL.Sample", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -168,23 +184,30 @@ namespace DAL_DbHammer.Migrations
                     b.ToTable("samples");
                 });
 
-            modelBuilder.Entity("DAL_DbHummer.DAL.CalibHummer", b =>
+            modelBuilder.Entity("DAL_DbHammer.DAL.CalibHummer", b =>
                 {
-                    b.HasOne("DAL_DbHummer.DAL.Sample", "Sample")
+                    b.HasOne("DAL_DbHammer.DAL.Sample", "Sample")
                         .WithMany()
                         .HasForeignKey("SampleId");
                 });
 
-            modelBuilder.Entity("DAL_DbHummer.DAL.CalibrationInfo", b =>
+            modelBuilder.Entity("DAL_DbHammer.DAL.CalibrationInfo", b =>
                 {
-                    b.HasOne("DAL_DbHummer.DAL.CalibHummer", "CalibHummer")
+                    b.HasOne("DAL_DbHammer.DAL.CalibHummer", "CalibHummer")
                         .WithMany("calibrationInfos")
                         .HasForeignKey("CalibHummerId");
                 });
 
-            modelBuilder.Entity("DAL_DbHummer.DAL.Sample", b =>
+            modelBuilder.Entity("DAL_DbHammer.DAL.SamplRefAcc", b =>
                 {
-                    b.HasOne("DAL_DbHummer.DAL.ManufactureName", "Manufacture")
+                    b.HasOne("DAL_DbHammer.DAL.RefAccelerometer", "Accelerometer")
+                        .WithMany("sampleRefAccsrlerometr")
+                        .HasForeignKey("AccelerometerId");
+                });
+
+            modelBuilder.Entity("DAL_DbHammer.DAL.Sample", b =>
+                {
+                    b.HasOne("DAL_DbHammer.DAL.ManufactureName", "Manufacture")
                         .WithMany("Samples")
                         .HasForeignKey("ManufactureId");
                 });

@@ -23,6 +23,4 @@ namespace HammerShock_Calibration.Properties {
 			}
 		}
 	}
->>>>>>>>> Temporary merge branch 2
->>>>>>>>> Temporary merge branch 2
 }

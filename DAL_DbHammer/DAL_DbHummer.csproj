@@ -215,15 +215,16 @@
     <Compile Include="DAL\CalibHummer.cs" />
     <Compile Include="DAL\CalibrationInfo.cs" />
     <Compile Include="Context\HummerShockDb.cs" />
+    <Compile Include="DAL\SamplRefAcc.cs" />
     <Compile Include="DAL\Entity.cs" />
     <Compile Include="DAL\ManufactureName.cs" />
     <Compile Include="DAL\Mass.cs" />
     <Compile Include="DAL\RefAccelerometer.cs" />
     <Compile Include="DAL\Sample.cs" />
     <Compile Include="DbRepository.cs" />
-    <Compile Include="Migrations\20241013161202_MyMigration.cs" />
-    <Compile Include="Migrations\20241013161202_MyMigration.Designer.cs">
-      <DependentUpon>20241013161202_MyMigration.cs</DependentUpon>
+    <Compile Include="Migrations\20241015200256_MyMigrationHammer.cs" />
+    <Compile Include="Migrations\20241015200256_MyMigrationHammer.Designer.cs">
+      <DependentUpon>20241015200256_MyMigrationHammer.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\HummerShockDbModelSnapshot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -237,9 +238,9 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\HummerShock.Inteface\HammerShock.Inteface.csproj">
-      <Project>{3e53ed84-b551-486d-9c91-6a3e2c3f27fe}</Project>
-      <Name>HammerShock.Inteface</Name>
+    <ProjectReference Include="..\InterfaceHammers\InterfaceHammers.csproj">
+      <Project>{C4BC55FC-2F4C-403E-94E5-ECD16FF2A1BE}</Project>
+      <Name>InterfaceHammers</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
