@@ -11,7 +11,7 @@ namespace DAL_DbHammer
 		.AddTransient<IRepository<RefAccelerometer>, RefAccelerometerRepository>()
 		.AddTransient<IRepository<ManufactureName>, ManufactureNameRepository>()
 		.AddTransient<IRepository<Sample>, SampleRepository>()
-		.AddTransient<IRepository<CalibHummer>, CalibHummerRepository>()
+		.AddTransient<IRepository<CalibHammer>, CalibHummerRepository>()
 		.AddTransient<IRepository<CalibrationInfo>, CalibrationInfoRepository>()
 		.AddTransient<IRepository<SamplRefAcc>, SamplRefAccRepository>()
 		;

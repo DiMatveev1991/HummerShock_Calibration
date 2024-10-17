@@ -222,9 +222,17 @@
     <Compile Include="DAL\RefAccelerometer.cs" />
     <Compile Include="DAL\Sample.cs" />
     <Compile Include="DbRepository.cs" />
-    <Compile Include="Migrations\20241015200256_MyMigrationHammer.cs" />
-    <Compile Include="Migrations\20241015200256_MyMigrationHammer.Designer.cs">
-      <DependentUpon>20241015200256_MyMigrationHammer.cs</DependentUpon>
+    <Compile Include="Migrations\20241020075033_HammerShockMigration.cs" />
+    <Compile Include="Migrations\20241020075033_HammerShockMigration.Designer.cs">
+      <DependentUpon>20241020075033_HammerShockMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20241021180938_MigrationHammer.cs" />
+    <Compile Include="Migrations\20241021180938_MigrationHammer.Designer.cs">
+      <DependentUpon>20241021180938_MigrationHammer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20241021181406_MyMigrationHammerShock1.cs" />
+    <Compile Include="Migrations\20241021181406_MyMigrationHammerShock1.Designer.cs">
+      <DependentUpon>20241021181406_MyMigrationHammerShock1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\HummerShockDbModelSnapshot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -514,6 +514,10 @@
       <Project>{3184f319-d6a6-40c2-a097-e26ccf1830c1}</Project>
       <Name>DAL_DbHummer</Name>
     </ProjectReference>
+    <ProjectReference Include="..\InterfaceHammers\InterfaceHammers.csproj">
+      <Project>{C4BC55FC-2F4C-403E-94E5-ECD16FF2A1BE}</Project>
+      <Name>InterfaceHammers</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Data.SqlClient.SNI.4.0.1\build\net46\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('..\packages\Microsoft.Data.SqlClient.SNI.4.0.1\build\net46\Microsoft.Data.SqlClient.SNI.targets')" />

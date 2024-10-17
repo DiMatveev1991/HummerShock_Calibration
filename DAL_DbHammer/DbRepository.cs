@@ -84,17 +84,17 @@ namespace DAL_DbHammer
 		public override IQueryable<ManufactureName> items => base.items.Include(item => item.Samples);
 		public ManufactureNameRepository(HummerShockDb db) : base(db) { }
 	}
-	class CalibHummerRepository : DbRepository<CalibHummer>
+	class CalibHummerRepository : DbRepository<CalibHammer>
 	{
-		public override IQueryable<CalibHummer> items => base.items
+		public override IQueryable<CalibHammer> items => base.items
 			.Include(item => item.calibrationInfos)
-			.Include(item => item.Sample);
+			.Include(item => item.sample);
 		public CalibHummerRepository(HummerShockDb db) : base(db) { }
 	}
 	class CalibrationInfoRepository : DbRepository<CalibrationInfo>
 	{
 		public override IQueryable<CalibrationInfo> items => base.items
-			.Include(item => item.CalibHummer);
+			.Include(item => item.calibHammer);
 		public CalibrationInfoRepository(HummerShockDb db) : base(db) { }
 	}
 	class SampleRepository : DbRepository<Sample>

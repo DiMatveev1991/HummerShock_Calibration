@@ -5,10 +5,10 @@ namespace DAL_DbHammer.DAL
 	public class CalibrationInfo : Entity
 	{
 
-		public virtual CalibHummer CalibHummer { get; set; }
+		public virtual CalibHammer calibHammer { get; set; }
 
-		DateTime DateTimeCalib { get; set; }
+		public DateTime DateTimeCalib { get; set; }
 
-		string path { get; set; }
+		public string path { get; set; }
 	}
 }

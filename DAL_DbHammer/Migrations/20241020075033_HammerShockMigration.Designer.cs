@@ -4,14 +4,16 @@ using DAL_DbHammer.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DAL_DbHammer.Migrations
 {
     [DbContext(typeof(HummerShockDb))]
-    partial class HummerShockDbModelSnapshot : ModelSnapshot
+    [Migration("20241020075033_HammerShockMigration")]
+    partial class HammerShockMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -19,21 +21,21 @@ namespace DAL_DbHammer.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("DAL_DbHammer.DAL.CalibHammer", b =>
+            modelBuilder.Entity("DAL_DbHammer.DAL.CalibHummer", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("SerialNumbers")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid?>("sampleId")
+                    b.Property<Guid?>("SampleId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("SerialNumber")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("sampleId");
+                    b.HasIndex("SampleId");
 
                     b.ToTable("CalibHummers");
                 });
@@ -44,18 +46,12 @@ namespace DAL_DbHammer.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("DateTimeCalib")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("calibHammerId")
+                    b.Property<Guid?>("CalibHummerId")
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("path")
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("calibHammerId");
+                    b.HasIndex("CalibHummerId");
 
                     b.ToTable("CalibInfo");
                 });
@@ -190,18 +186,18 @@ namespace DAL_DbHammer.Migrations
                     b.ToTable("samples");
                 });
 
-            modelBuilder.Entity("DAL_DbHammer.DAL.CalibHammer", b =>
+            modelBuilder.Entity("DAL_DbHammer.DAL.CalibHummer", b =>
                 {
-                    b.HasOne("DAL_DbHammer.DAL.Sample", "sample")
+                    b.HasOne("DAL_DbHammer.DAL.Sample", "Sample")
                         .WithMany()
-                        .HasForeignKey("sampleId");
+                        .HasForeignKey("SampleId");
                 });
 
             modelBuilder.Entity("DAL_DbHammer.DAL.CalibrationInfo", b =>
                 {
-                    b.HasOne("DAL_DbHammer.DAL.CalibHammer", "calibHammer")
+                    b.HasOne("DAL_DbHammer.DAL.CalibHummer", "CalibHummer")
                         .WithMany("calibrationInfos")
-                        .HasForeignKey("calibHammerId");
+                        .HasForeignKey("CalibHummerId");
                 });
 
             modelBuilder.Entity("DAL_DbHammer.DAL.SamplRefAcc", b =>

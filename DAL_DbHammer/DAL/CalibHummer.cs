@@ -2,10 +2,10 @@
 
 namespace DAL_DbHammer.DAL
 {
-	public class CalibHummer : Entity
+	public class CalibHammer : Entity
 	{
-		public string SerialNumber { get; set; }
-		public virtual Sample Sample { get; set; }
+		public string SerialNumbers { get; set; }
+		public virtual Sample sample { get; set; }
 		public virtual ICollection<CalibrationInfo> calibrationInfos { get; set; }
 	}
 }

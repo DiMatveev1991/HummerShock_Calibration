@@ -4,14 +4,16 @@ using DAL_DbHammer.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DAL_DbHammer.Migrations
 {
     [DbContext(typeof(HummerShockDb))]
-    partial class HummerShockDbModelSnapshot : ModelSnapshot
+    [Migration("20241021180938_MigrationHammer")]
+    partial class MigrationHammer
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -44,14 +46,8 @@ namespace DAL_DbHammer.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("DateTimeCalib")
-                        .HasColumnType("datetime2");
-
                     b.Property<Guid?>("calibHammerId")
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("path")
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
