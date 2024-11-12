@@ -88,19 +88,21 @@ namespace DAL_DbHammer
 	{
 		public override IQueryable<CalibHammer> items => base.items
 			.Include(item => item.calibrationInfos)
-			.Include(item => item.sample);
+			.Include(item => item.sample)
+			.ThenInclude(item => item.Manufacture);
 		public CalibHummerRepository(HummerShockDb db) : base(db) { }
 	}
 	class CalibrationInfoRepository : DbRepository<CalibrationInfo>
 	{
 		public override IQueryable<CalibrationInfo> items => base.items
-			.Include(item => item.calibHammer);
+			.Include(item => item.CalibHammer);
 		public CalibrationInfoRepository(HummerShockDb db) : base(db) { }
 	}
 	class SampleRepository : DbRepository<Sample>
 	{
 		public override IQueryable<Sample> items => base.items
 			.Include(item => item.Manufacture);
+			
 		public SampleRepository(HummerShockDb db) : base(db) { }
 	}
 	class RefAccelerometerRepository : DbRepository<RefAccelerometer>
