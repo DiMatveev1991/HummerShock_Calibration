@@ -4,11 +4,53 @@
         xmlns:ni="http://schemas.ni.com/controls/2009/xaml/presentation"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:HammerShock_Calibration"
+        xmlns:local="clr-namespace:HammerShock_Calibration" xmlns:viewmodels="clr-namespace:HammerShock_Calibration.ViewModels" 
         mc:Ignorable="d"
         DataContext="{Binding Path=MainWindowModel,  Source={StaticResource ResourceKey=Locator}}"
-        Title="{Binding Path = Title}" Height="350" Width="525">
-    <Grid>
-    
+        Title="{Binding Path = Title}" Height="600" Width="1000">
+
+    <Grid Background="DarkGray">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition/>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+        <Menu Background="DarkGray"  Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="7" Margin="0,0,9.667,0">
+            <MenuItem Header="база эталонов" Grid.Column="1" Grid.Row ="0" Grid.ColumnSpan="2">
+                <MenuItem Header="Эталонные датчики" >
+                    <MenuItem  Header="Выбор эталонного датчика"></MenuItem>
+                    <MenuItem  Header="Добавить эталонный датчик" ></MenuItem>
+                </MenuItem>
+                <MenuItem  Header="Эталонная масса" >
+                    <MenuItem Command="{Binding  ShowViewCommand}" Header="Добавить эталонную массу"></MenuItem>
+                </MenuItem>
+                <Separator />
+            </MenuItem>
+
+            <MenuItem Header="База поверяемых молотков" Grid.Column="2" Grid.Row="0" Grid.ColumnSpan="3" >
+                <MenuItem  Header="Добавить производителя молотков"></MenuItem>
+                <MenuItem  Header="Шаблон поверяемого молотка"></MenuItem>
+                <MenuItem  Header="Добавить поверяемый молоток" ></MenuItem>
+                <MenuItem  Header="Выбор поверяемого молотка" ></MenuItem>
+                <Separator />
+            </MenuItem>
+        </Menu>
     </Grid>
 </Window>

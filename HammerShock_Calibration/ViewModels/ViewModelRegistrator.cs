@@ -6,6 +6,8 @@ namespace HammerShock_Calibration.ViewModels
 	{
 		public static IServiceCollection AddViewModels(this IServiceCollection services) => services
 			.AddSingleton<MainWindowViewModel>()
-			;
+		    .AddSingleton<MassViewModel>()
+		;
+			
 	}
 }

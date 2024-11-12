@@ -11,7 +11,7 @@ namespace HammerShock.Inteface
 	{
 		 Guid Id { get; set; }
 	}
-	public interface IRepository<T> where T : class, IEntity, new()
+	public interface IRepository<T> where T :  IEntity, new()
 	{
 		IQueryable<T> items { get; }
 		T Get(Guid id);

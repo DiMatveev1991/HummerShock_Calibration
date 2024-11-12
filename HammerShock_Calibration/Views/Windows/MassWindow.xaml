@@ -1,0 +1,42 @@
+﻿<Window x:Class="HammerShock_Calibration.Views.Windows.MassWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HammerShock_Calibration" xmlns:viewmodels="clr-namespace:HammerShock_Calibration.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:MassViewModel}"
+        mc:Ignorable="d"
+        DataContext="{Binding Path=MassWindowModel,  Source={StaticResource ResourceKey=Locator}}"
+        Title="MassWindow" Height="450" Width="800">
+    <Grid Background="DarkGray">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+           
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <GroupBox Header="Список добавленных масс" >
+            <ListBox Grid.Row="1" ItemsSource="{Binding AllMasses}"
+                     SelectedItem="{Binding SelectedMass}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Margin="5">
+                            <TextBlock FontSize="18" Text="{Binding Path=Name}" />
+                            <TextBlock Text="{Binding Path=mass}" />
+                            <TextBlock Text="{Binding Path=dimension}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </GroupBox>
+        <StackPanel Grid.Row="1" Grid.Column="1" DataContext="{Binding SelectedMass}">
+            <TextBlock Text="Выбранный элемент"  />
+            <TextBlock Text="Наименование" />
+            <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBlock Text="Номинал массы" />
+            <TextBox Text="{Binding mass, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBlock Text="размерность" />
+            <ComboBox Name="ComboBox1" Text="{Binding dimension, UpdateSourceTrigger=PropertyChanged}">
+               <ComboBoxItem ></ComboBoxItem>
+            </ComboBox>
+        </StackPanel>
+    </Grid>
+</Window>
